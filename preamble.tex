@@ -1,0 +1,77 @@
+%
+% Created By: Mathieu Landretti
+% APA Annotated Bibliography Template
+%
+
+\usepackage[margin=1in]{geometry}
+\usepackage[english]{babel} 
+\usepackage{xcolor}							  
+\usepackage{graphicx,tabularx,wrapfig} 				% Figures 
+\usepackage{import,setspace,titlesec}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{refs.bib}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\headheight=12pt \fancyhf{}
+\lhead{\color{gray}\MakeUppercase{\maintitle}}
+\rhead{\color{gray}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% URL Styling
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url,hyperref}							  
+\hypersetup{
+	colorlinks=true,
+	linkcolor=orange,
+	filecolor=magenta,
+	urlcolor=cyan
+}
+\urlstyle{same}
+
+% Make title APA7 Compliant 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\section}{\bfseries\centering}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries}{\thesection}{1em}{}
+\titleformat{\subsubsection}{\itseries\bfseries}{\thesection}{1em}{}
+
+\doublespacing
+
+% Builds main title page
+%
+% Example:
+% \tlpage{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{tlpage}{
+	\begin{center}
+		\vspace*{\fill}
+		\textbf{\maintitle}\\
+		\textbf{\subtitle}\\
+		\vspace{24pt}
+		\mainauthor\\
+		\school\\
+		\course\\
+		\instructor\\
+		\today{}
+		\vspace*{\fill}
+	\end{center}
+	}{\newpage
+}
+
+% Environment for annotated bibs
+%
+% Example:
+% \begin{bibentry}{refkey}
+%	Annotation goes here.
+% \end{bibentry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newenvironment{bibentry}[1]{
+	\begingroup
+		\fullcitebib{#1}
+		\par\medskip
+		\leftskip=3em
+		\noindent\ignorespaces
+		}{
+		\par\medskip
+	\endgroup
+}
